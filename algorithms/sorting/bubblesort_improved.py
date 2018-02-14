@@ -5,13 +5,11 @@ def bubble_sort_improved(array):
     in that case we can simply return the array.
     """
     size, swap = len(array) - 1, True
-    for i in range(size):
-        if not swap:
-            return array
-        for j in range(size - i):
-            swap = False
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
+    while size > 0 and swap:
+        swap = False
+        for i in range(size):
+            if array[i] > array[i + 1]:
+                array[i], array[i + 1] = array[i + 1], array[i]
                 swap = True
     return array
 
