@@ -11,6 +11,7 @@ def bubble_sort_improved(array):
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
                 swap = True
+        size -= 1
     return array
 
 
