@@ -24,7 +24,6 @@ def selection_sort(arr, n=None):
             if arr[j] < arr[smallest]:
                 smallest = j
         arr[i], arr[smallest] = arr[smallest], arr[i]
-        print(arr[i])
     return arr
 
 
