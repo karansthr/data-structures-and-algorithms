@@ -6,7 +6,8 @@ def count_ways(number_of_steps, possible_steps=[1, 2], cache={}):
 
     for example:
         number_of_steps = 4
-        possible_steps = [1, 2] this means one can either climb one step or two steps
+        possible_steps = [1, 2] this means one can either climb
+        one step or two steps
         possible ways to reach to top are
             1,1,1,1
             2,1,1
@@ -35,7 +36,8 @@ def count_ways(number_of_steps, possible_steps=[1, 2], cache={}):
             if step < second_minimum_step and step > minimum_step:
                 second_minimum_step = step
         cache[minimum_step] = 1
-        cache[second_minimum_step] = 2 if second_minimum_step % minimum_step == 0 else 1
+        cache[second_minimum_step] = 2 \
+            if second_minimum_step % minimum_step == 0 else 1
     cache[number_of_steps] = 0
     for step in possible_steps:
         if step <= number_of_steps:
