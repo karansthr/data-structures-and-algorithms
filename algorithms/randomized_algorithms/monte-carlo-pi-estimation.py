@@ -1,5 +1,6 @@
 import random
 
+
 def estimate_pi(n):
     data = {
             'inside_circle': 0,

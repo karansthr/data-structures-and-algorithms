@@ -1,23 +1,29 @@
+from collections import Defaultdict
+
+
 class Graph:
+
     class Node:
         def __init__(self, name, value):
             self.name = name
             self.value = value
 
     def __init__(self):
-        self.adj_list = {}
+        self.adj_list = Defaultdict(list)
 
-    def add_node(self, node_name, value):
-        temp = self.Node(value)
-        self.adj_list[node_name] = temp
+    def add_node(self, node_name):
+        self.adj_list[node_name] = []
 
     def link_node(self, a, b):
         self.adj_list[a].append(b)
+        self.adj_list[b].append(a)
 
     # breadth first search
     def bfs(self):
-        pass
-
+        start = self.adj_list.keys()[0]
+        queue = self.adj_list[start]
+        visited = [start]
+        while
     # depth first search
     def dfs(self):
         pass
@@ -29,26 +35,3 @@ class Graph:
         while not stack:
             pass
         return path
-
- '''
-    a---b
-    \    \
-     \    e
-      \    \
-      d---c
-
-     adj_list = {
-                a: [b,d],
-                b: [a,e],
-                c: [e,d],
-                d: [a,c],
-                e: [b,c],
-            }
-    GRAPH_OBJECT.get_path(a,c)
-    ->
-        one out of following two:
-            1. [a, d, c]
-            2. [a, b, e, c]
-    ->
-
-'''
