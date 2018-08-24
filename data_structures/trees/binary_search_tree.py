@@ -49,7 +49,7 @@ class Tree:
 
     def preorder(self, return_nodes=False):
         if self.root is None:
-            return []
+            yield
 
         stack = []
         traverser = self.root
@@ -64,7 +64,7 @@ class Tree:
 
     def inorder(self, return_nodes=False):
         if self.root is None:
-            return []
+            yield
 
         traverser = self.root
         stack = [traverser]
@@ -80,7 +80,7 @@ class Tree:
 
     def postorder(self, return_nodes=False):
         if self.root is None:
-            return []
+            yield
 
         stack = []
         if self.root.right:
@@ -104,7 +104,7 @@ class Tree:
     # bredth first search // queue
     def levelorder(self, return_nodes=False):
         if self.root is None:
-            return []
+            yield
 
         traverser = self.root
         queue = deque([traverser])
@@ -115,3 +115,23 @@ class Tree:
                 queue.append(traverser.left)
             if traverser.right:
                 queue.append(traverser.right)
+
+    def get_leafs(self, return_nodes=False):
+        if self.root is None:
+            yield
+
+        traverser = self.root
+        stack = [traverser]
+        while stack:
+            if traverser:
+                traverser = traverser.left
+                if traverser:
+                    stack.append(traverser)
+            else:
+                traverser = stack.pop()
+                if not traverser.right:
+                    yield traverser if return_nodes else traverser.value
+                else:
+                    traverser = traverser.right
+                    stack.append(traverser)
+
