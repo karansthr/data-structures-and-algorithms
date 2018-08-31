@@ -2,6 +2,7 @@ import unittest
 
 from data_structures.trees.binary_search_tree import Tree
 
+
 class BinarySearchTreeTest(unittest.TestCase):
 
     def test(self):

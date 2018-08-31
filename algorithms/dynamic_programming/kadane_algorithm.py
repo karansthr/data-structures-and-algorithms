@@ -15,6 +15,5 @@ def max_subarray(arr):
 
 
 if __name__ == '__main__':
-    for test in range(int(input())):
-        arr = list(map(int, input().split()))
-        print(max_subarray(arr))
+    arr = list(map(int, input().split()))
+    print(max_subarray(arr))
